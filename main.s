@@ -57,7 +57,7 @@ col_loop:
     bge      r17, r0, row_loop
 
     # Delay ~41ms (adjust if the video is too fast or slow)
-    movia    r14, 1041666
+    movia    r14, 520833
 delay_loop:
     subi     r14, r14, 1
     bne      r14, r0, delay_loop
