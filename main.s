@@ -7,7 +7,7 @@
 .equ LOG2_BYTES_PER_ROW,   10       # log2(1024) — row = 1024 bytes
 .equ LOG2_BYTES_PER_PIXEL, 1        # log2(2) — 2 bytes per pixel
 .equ PIXBUF,               0x08000000
-.equ TOTAL_FRAMES,         240
+.equ TOTAL_FRAMES,         120
 
 .global _start
 _start:
@@ -64,7 +64,7 @@ col_loop:
     bge     r17, r0, row_loop
 
     # Delay ~41ms at 50MHz
-    movia   r14, 520833
+    movia   r14, 1562500            # 31.25ms a 50MHZ -> 41.7fps = 24fps
 delay_loop:
     subi    r14, r14, 1
     bne     r14, r0, delay_loop
